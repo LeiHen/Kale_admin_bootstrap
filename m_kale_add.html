@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>列表内容</title>	
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/common.css">
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+				
+		<link rel="stylesheet" href="css/validationEngine.css">
+		
+	</head>
+	<body>
+		
+        
+        <div class="header">
+            <div class="header_r">
+                <p>卡乐后台</p>
+            </div>
+        </div>
+        
+        <div class="content pt50">
+            <form action="m_kale_add_save.php" method="post"  >
+                <table  class="table table-bordered">
+                    <thead>
+                        <tr >
+                            <th colspan='2' class="text-title" >添加信息</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-r">用户名</td>
+                            <td><input type="text" name="user_name" id="user_name" value="" class="validate[required,minSize[6],maxSize[20]]" ></td>
+                        </tr>
+                        <tr>
+                            <td class="text-r">密码</td>
+                            <td><input type="text" name="pass_word" id="pass_word" value="" class="validate[required,minSize[6]]" ></td>
+                        </tr>
+                        <tr>
+                            <td class="text-r">COM</td>
+                            <td><input type="text" name="com" id="com" value="" class="validate[required,minSize[4],maxSize[6]]" ></td>
+                        </tr>
+                        <tr>
+                            <td class="text-r">使用时间</td>
+                            <td><input type="text" name="use_time" id="use_time" value=""></td>
+                        </tr>
+                        <tr>
+                            <td class="text-r">备份数据</td>
+                            <td><input type="text" name="back_data" id="back_data" value=""></td>
+                        </tr>
+                        <tr>
+                            <td class="text-r">&nbsp;</td>
+                            <td>
+                                <input type="submit" name="button" id="button" value="添加" class="btn btn-primary">
+                                <input type="button" value="取消" class="btn">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            
+            
+            <form class="form-horizontal list_detailInfo" action="m_kale_add_save.php" method="post" >
+                <fieldset>
+                    <legend class="title">添加信息</legend>
+                    <div class="control-group">
+                      <label class="control-label" for="input01">用户名</label>
+                      <div class="controls">
+                        <input type="text" name="user_name" id="user_name" value="">
+                        <p class="help-block">字母，数字，汉字皆可</p>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="input01">密码</label>
+                      <div class="controls">
+                        <input type="text" name="pass_word" id="pass_word" value="">
+                        <p class="help-block">最少6位</p>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="input01">COM</label>
+                      <div class="controls">
+                        <input type="text" name="com" id="com" value="">
+                        <p class="help-block">4-6纯数字</p>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="input01">使用时间</label>
+                      <div class="controls">
+                        <input type="text" name="use_time" id="use_time" value="">
+                        <p class="help-block">提示文字</p>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="input01">备份数据</label>
+                      <div class="controls">
+                        <input type="text" name="back_data" id="back_data" value="">
+                        <p class="help-block">提示文字</p>
+                      </div>
+                    </div>
+                    <div class="control-group">
+                      <label class="control-label" for="input01"></label>
+                      <div class="controls">
+                        <input type="submit" name="button" id="button" value="添加" class="btn btn-primary">
+                        <input type="button" value="取消" class="btn">
+                      </div>
+                    </div>
+                </fieldset>
+            </form>
+<!--            <ul class="list">
+                <li>
+                    <samp>备注</samp>
+                    <samp>账号</samp>
+                    <samp>密码</samp>
+                    <samp>IP</samp>
+                    <samp>端口</samp>
+                    <samp>到期时间</samp>
+                    <samp>备份</samp>
+                    <samp>操作</samp>
+                </li>
+                
+                <li >
+                    <samp><input type="text" value="刘强东" readonly="readonly"  ></samp>
+                    <samp><input type="text" value="liuqiangdong" readonly="readonly" class="validate[required,minSize[6]]" ></samp>
+                    <samp><input type="text" value="132456789" readonly="readonly" class="validate[required,minSize[6]]" ></samp>
+                    <samp><input type="text" value="192.168.100.100" readonly="readonly" class="validate[required,custom[ipv4]]" ></samp>
+                    <samp><input type="text" value="8000" readonly="readonly" class="validate[required,custom[onlyNumberSp],minSize[2],maxSize[4]]"  ></samp>
+                    <samp><input type="text" value="2011-12-01" readonly="readonly" class="validate[required,custom[date]]"></samp>
+                    <samp><input type="text" value="有" readonly="readonly" ></samp>
+                    <samp class="operat">
+                        <a class="icon-edit colck_green" title="编辑" onclick="listEdit(this)"></a>
+                        <a class="icon-save colck_green none" title="保存" onclick="listSave(this)"></a>
+                        <a class="icon-stop colck_red" title="停止"></a>
+                        <a class="icon-start colck_red none" title="启用"></a>
+                        <a class="icon-delete colck_red" title="删除" onclick="listDel(this)"></a>
+                        <a class="icon-delete  colck_red none" title="撤销删除"></a>
+                    </samp>
+                </li>
+                         
+            </ul>
+            <div class="clear"></div>-->
+        </div>
+        
+        <div class="adminListBg"></div>
+        <p id="back-to-top" ><a alt="返回顶部" title="返回顶部"><span></span></a></p>
+
+        <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<!--        <script src="js/jquery-1.9.1.min.js"></script>-->
+			
+		<script src="js/base.js"></script>
+		<script src="js/common.js"></script>
+		
+		<script src="js/bootstrap/bootstrap-datetimepicker.js"></script>
+		<script src="js/bootstrap/bootstrap-alert.js"></script>
+		
+		<script src="js/validation/validationEngine.js"></script>
+		
+		<script type="text/javascript">	
+			//初始化 统一入口
+			function init(){
+
+                //返回顶部
+                toTop();
+                
+                //表单验证
+                jQuery(".table").validationEngine('attach');
+                
+                //日历调用
+                $('#use_time').datetimepicker({
+                    //设置语言
+                    language: 'zh-CN',
+                    //设置日期格式
+                    format: 'yyyy-mm-dd',
+                    //起始日期
+                    startDate:'2014-01-01',
+                    //结束日期
+                    endDate:'2020-12-31',
+                    //选中后关闭
+                    autoclose:true,
+                    //首先是月视图
+                    startView: 2,
+                    //最小月视图
+                    minView:2, 
+                    //可以选择年月
+                    todayBtn:  1,
+                    todayHighlight: 1,
+                    //绑定键盘快捷键
+                    keyboardNavigation:true,
+                    forceParse: 0,
+                    showMeridian: 1
+
+                });
+                
+                
+			}
+			init();
+		</script>
+
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/PIE/PIE.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                if (window.PIE) {
+                    $('.rounded').each(function() {
+                        PIE.attach(this);
+                    });    
+                }
+            });
+        </script>
+        <![endif]-->
+	</body>
+</html>
