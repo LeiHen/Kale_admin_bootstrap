@@ -21,6 +21,8 @@
         </div>
         
         <div class="content">
+<!--            <div class="alert fade in">删除成功<a class="close" data-dismiss="alert" href="#">&times;</a></div>-->
+            
             <div class="add_list">
                 <a class="btn btn-large" href="m_kale_add.html">添加</a>
             </div>
@@ -82,7 +84,8 @@
                         <td>无</td>
                         <td>
                             <a href="m_kale_edit.php?id=1">修改</a>&nbsp;&nbsp;
-                            <a href="m_kale_delete.php?id=1">删除</a>&nbsp;&nbsp;
+                            <a href="#" onclick="infoFeedback('删除失败',false,3000);">删除</a>&nbsp;&nbsp;
+<!--                        info feedback 调用 infoFeedback('删除失败',false,3000);-->
                             <a href="m_stop_use.php?id=1">停止</a>
                         </td>
                     </tr>
@@ -1481,9 +1484,14 @@
 		<script src="js/common.js"></script>
 		
 <!--		<script src="js/bootstrap/bootstrap.js"></script>-->
-		<script src="js/bootstrap/bootstrap-datetimepicker.js"></script>
 		
-		<script src="js/validation/validationEngine.js"></script>    
+		
+		<script src="js/bootstrap/bootstrap-transition.js"></script>
+		<script src="js/bootstrap/bootstrap-datetimepicker.js"></script>
+		<script src="js/bootstrap/bootstrap-alert.js"></script>
+		
+		<script src="js/validation/validationEngine.js"></script> 
+		   
 		<script type="text/javascript">	
 			//初始化 统一入口
 			function init(){
@@ -1494,9 +1502,9 @@
                 //表单验证
 //                jQuery(".list li").validationEngine('attach');
                 
+//                $(".alert").alert();
                 
-                
-                
+//  info feedback 调用 例子  infoFeedback('删除失败',false,3000);
 			}
 			init();
 		</script>

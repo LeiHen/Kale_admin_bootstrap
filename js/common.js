@@ -123,6 +123,57 @@ function loginAjax(){
 /* @end **/
 
 /**
+* @name		:infoFeedback
+* @author	:si
+* @relating	:jQuery,Bootstrap(transition,datetimepicker,alert)
+* @dependent:
+*            str  :提示性文字
+*            state:true为成功 ; false为失败
+*            time :延迟消失时间(单位为毫秒)，默认为空
+*            例子 :alertText('删除成功','false',3000);
+*/               
+function infoFeedback(str,state,time){
+//    var add_succeed="添加成功";
+//    var add_defeat="添加失败";
+//
+//    var del_succeed="删除成功";
+//    var del_defeat="删除失败";
+//
+//    var save_succeed="保存成功";
+//    var save_defeat="保存失败";
+
+    var stateCSS;
+
+    if(state){
+        stateCSS="alert-success";
+    }else{
+        stateCSS="alert-error";
+    }
+
+    //在 content 插入alert
+     $('.content').prepend(
+         '<div class="alert '+ stateCSS +' fade in mt10  center">'+'删除成功'+'<a class="close" data-dismiss="alert" href="#">&times;</a></div>'
+     )
+
+    //调用
+    //                    $(".alert").alert();
+
+    //时间延迟自动隐藏
+    if(time){
+        setTimeout(
+            function(){$(".alert").alert('close')},
+            time
+        )
+    }else{
+        return
+    }
+}
+/* @end **/ 
+
+
+
+
+/**
 * @name		:listEdit
 * @author	:si
 * @relating	:jQuery

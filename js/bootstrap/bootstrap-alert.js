@@ -83,6 +83,13 @@
 
   $.fn.alert.Constructor = Alert
 
+ /* ALERT NO CONFLICT
+  * ================= */
+
+  $.fn.alert.noConflict = function () {
+    $.fn.alert = old
+    return this
+  }
 
  /* ALERT DATA-API
   * ============== */
@@ -92,3 +99,5 @@
   })
 
 }( window.jQuery );
+
+
